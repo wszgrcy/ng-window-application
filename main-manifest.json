@@ -1,0 +1,24 @@
+{
+  "name": "centerLib",
+  "content": {
+    "./src/service/toast.service.ts": {
+      "id": "+jn8",
+      "buildMeta": {
+        "exportsType": "namespace",
+        "providedExports": [
+          "ToastService"
+        ]
+      }
+    },
+    "./src/interface/desktop.interface.ts": {
+      "id": "BQbU",
+      "buildMeta": {
+        "exportsType": "namespace",
+        "providedExports": [
+          "BootMethod",
+          "LoadType"
+        ]
+      }
+    }
+  }
+}

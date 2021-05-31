@@ -1,0 +1,138 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "17f8ba8b-3af3-4b62-be84-e607dca095ca"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "window-application": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/window-application",
+      "sourceRoot": "projects/window-application/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist/window-application",
+            "index": "",
+            "main": "projects/window-application/src/main.ts",
+            "polyfills": "",
+            "tsConfig": "projects/window-application/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/window-application/src/favicon.ico",
+              "projects/window-application/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./webpack.config.window-application.ts"
+            },
+            "vendorChunk": false,
+            "deployUrl": "http://127.0.0.1:4201/"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/window-application/src/environments/environment.ts",
+                  "with": "projects/window-application/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "deployUrl": "window-application/"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "window-application:build",
+            "publicHost": "0.0.0.0:4201",
+            "port": 4201,
+            "servePath": "/"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "window-application:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "window-application:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/window-application/src/test.ts",
+            "polyfills": "projects/window-application/src/polyfills.ts",
+            "tsConfig": "projects/window-application/tsconfig.spec.json",
+            "karmaConfig": "projects/window-application/karma.conf.js",
+            "assets": [
+              "projects/window-application/src/favicon.ico",
+              "projects/window-application/src/assets"
+            ],
+            "styles": [
+              "projects/window-application/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/window-application/tsconfig.app.json",
+              "projects/window-application/tsconfig.spec.json",
+              "projects/window-application/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/window-application/e2e/protractor.conf.js",
+            "devServerTarget": "window-application:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "window-application:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "window-application"
+}
