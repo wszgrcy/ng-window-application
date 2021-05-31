@@ -15,13 +15,15 @@ export default (config: webpack.Configuration, options) => {
   // 主项目导出资源
   config.plugins.push(
     new webpack.DllReferencePlugin({
-        context: path.resolve(__dirname),
-        manifest: require('./main-manifest.json')
+      context: path.resolve(__dirname),
+      manifest: require('./main-manifest.json'),
     })
   );
   // 导入检查模块,如果使用主项目的某些资源未被导出(管道,指令,组件)会提示文件路径警告,这时在export-module.ts中加入即可
-  config.plugins.push(new NgNamedImportCheckPlugin([path.resolve(__dirname, 'src')]));
-  config.output.jsonpFunction = 'windowApplicationJsonp'
+  config.plugins.push(
+    new NgNamedImportCheckPlugin([path.resolve(__dirname, 'src')])
+  );
+  config.output.jsonpFunction = 'windowApplicationJsonp';
   config.output.filename = 'window-application.[name].js';
   config.plugins.push(new LoadRemoteModulePlugin());
   // 不同环境需要不同的部署地址,或者获取到资源清单后手动加部署地址,使加载生效
@@ -29,6 +31,6 @@ export default (config: webpack.Configuration, options) => {
     new BootstrapAssetsPlugin({
       deployUrl: options.deployUrl,
     })
-  )
+  );
   return config;
 };

@@ -19,3 +19,21 @@ export const config: IconItem = {
   icon: 'settings',
   iconBackground: 'rgb(0, 120, 215)',
 };
+export const list: IconItem[] = [
+  {
+    name: '载入提示',
+    method: BootMethod.dragdrop,
+    data: {},
+    config: {
+      title: '使用装饰器加载请求',
+      lazyModule: () =>
+        import('@window-application/app/loading-hint/loading-hint.module').then(
+          (item) => item.LoadingHintModule
+        ),
+      loadType: LoadType.lazyModule,
+    },
+
+    icon: 'sync',
+  },
+  config,
+];

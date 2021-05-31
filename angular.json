@@ -36,7 +36,7 @@
               "path": "./webpack.config.window-application.ts"
             },
             "vendorChunk": false,
-            "deployUrl": "http://127.0.0.1:4201/"
+            "deployUrl": "http://127.0.0.1:4500/"
           },
           "configurations": {
             "production": {
@@ -65,7 +65,7 @@
                   "maximumError": "10kb"
                 }
               ],
-              "deployUrl": "window-application/"
+              "deployUrl": "https://wszgrcy.github.io/ng-window-application/"
             }
           }
         },
@@ -73,8 +73,8 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "window-application:build",
-            "publicHost": "0.0.0.0:4201",
-            "port": 4201,
+            "publicHost": "0.0.0.0:4500",
+            "port": 4500,
             "servePath": "/"
           },
           "configurations": {
