@@ -27,7 +27,7 @@
     "@angular/router": "~11.2.9",
     "cyia-ngx-common": "^11.1.7",
     "ngx-markdown": "^11.0.0",
-    "rxjs": "~6.6.0",
+    "rxjs": "6.5.4",
     "tslib": "^2.0.0",
     "webpack-bootstrap-assets-plugin": "^1.0.8",
     "webpack-ng-dll-plugin": "^2.1.10",
