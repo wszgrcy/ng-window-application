@@ -33,7 +33,7 @@ jobs:
          yarn
       - name: build
         run: |
-          npm run build
+          npm run deploy
           cp -rp dist/window-application/ ../dist
           git branch gh-pages
           git checkout gh-pages

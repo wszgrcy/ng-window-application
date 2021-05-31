@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "build:window-application": "ng build window-application",
     "build:window-application:prod": "ng build window-application --prod",
-    "start:window-application": "ng serve window-application"
+    "start:window-application": "ng serve window-application",
+    "deploy":"npm run build:window-application:prod"
   },
   "private": true,
   "dependencies": {
